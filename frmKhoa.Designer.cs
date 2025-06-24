@@ -97,6 +97,7 @@
             dgvKhoa.Name = "dgvKhoa";
             dgvKhoa.Size = new Size(416, 213);
             dgvKhoa.TabIndex = 6;
+            dgvKhoa.CellClick += dgvKhoa_CellClick;
             // 
             // them
             // 

@@ -119,6 +119,7 @@
             mnuKhoa.Name = "mnuKhoa";
             mnuKhoa.Size = new Size(180, 22);
             mnuKhoa.Text = "Khoa";
+            mnuKhoa.Click += mnuKhoa_Click;
             // 
             // mnuGiangVien
             // 

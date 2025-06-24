@@ -61,5 +61,15 @@ namespace QuanLiDiemDaiHoc
         {
             dgvKhoa.DataSource = controller.LayDanhSach();
         }
+
+        private void dgvKhoa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvKhoa.Rows[e.RowIndex];
+                txtMaKhoa.Text = row.Cells["MaKhoa"].Value.ToString();
+                txtTenKhoa.Text = row.Cells["TenKhoa"].Value.ToString();
+            }
+        }
     }
 }

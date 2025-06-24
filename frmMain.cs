@@ -86,5 +86,11 @@ namespace QuanLiDiemDaiHoc
             frmNganh nganh = new frmNganh();
             nganh.Show();
         }
+
+        private void mnuKhoa_Click(object sender, EventArgs e)
+        {
+            frmKhoa khoa = new frmKhoa();
+            khoa.Show();
+        }
     }
 }
