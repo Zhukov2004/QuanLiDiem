@@ -31,9 +31,15 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtMaKhoa = new TextBox();
+            txtTimKiem = new TextBox();
+            txtTenKhoa = new TextBox();
+            dgvKhoa = new DataGridView();
+            them = new Button();
+            timkiem = new Button();
+            xoa = new Button();
+            sua = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvKhoa).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -63,40 +69,95 @@
             label3.TabIndex = 2;
             label3.Text = "Tên khoa";
             // 
-            // textBox1
+            // txtMaKhoa
             // 
-            textBox1.Location = new Point(163, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(179, 23);
-            textBox1.TabIndex = 3;
+            txtMaKhoa.Location = new Point(163, 22);
+            txtMaKhoa.Name = "txtMaKhoa";
+            txtMaKhoa.Size = new Size(179, 23);
+            txtMaKhoa.TabIndex = 3;
             // 
-            // textBox2
+            // txtTimKiem
             // 
-            textBox2.Location = new Point(163, 129);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(179, 23);
-            textBox2.TabIndex = 4;
+            txtTimKiem.Location = new Point(163, 129);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(179, 23);
+            txtTimKiem.TabIndex = 4;
             // 
-            // textBox3
+            // txtTenKhoa
             // 
-            textBox3.Location = new Point(163, 76);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(179, 23);
-            textBox3.TabIndex = 5;
+            txtTenKhoa.Location = new Point(163, 76);
+            txtTenKhoa.Name = "txtTenKhoa";
+            txtTenKhoa.Size = new Size(179, 23);
+            txtTenKhoa.TabIndex = 5;
+            // 
+            // dgvKhoa
+            // 
+            dgvKhoa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvKhoa.Location = new Point(387, 22);
+            dgvKhoa.Name = "dgvKhoa";
+            dgvKhoa.Size = new Size(416, 213);
+            dgvKhoa.TabIndex = 6;
+            // 
+            // them
+            // 
+            them.Location = new Point(66, 179);
+            them.Name = "them";
+            them.Size = new Size(75, 23);
+            them.TabIndex = 7;
+            them.Text = "Thêm";
+            them.UseVisualStyleBackColor = true;
+            them.Click += them_Click;
+            // 
+            // timkiem
+            // 
+            timkiem.Location = new Point(219, 229);
+            timkiem.Name = "timkiem";
+            timkiem.Size = new Size(75, 23);
+            timkiem.TabIndex = 8;
+            timkiem.Text = "Tìm kiếm";
+            timkiem.UseVisualStyleBackColor = true;
+            timkiem.Click += timkiem_Click;
+            // 
+            // xoa
+            // 
+            xoa.Location = new Point(66, 229);
+            xoa.Name = "xoa";
+            xoa.Size = new Size(75, 23);
+            xoa.TabIndex = 9;
+            xoa.Text = "Xóa";
+            xoa.UseVisualStyleBackColor = true;
+            xoa.Click += xoa_Click;
+            // 
+            // sua
+            // 
+            sua.Location = new Point(219, 179);
+            sua.Name = "sua";
+            sua.Size = new Size(75, 23);
+            sua.TabIndex = 10;
+            sua.Text = "Sửa";
+            sua.UseVisualStyleBackColor = true;
+            sua.Click += sua_Click;
             // 
             // frmKhoa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(815, 395);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            ClientSize = new Size(815, 281);
+            Controls.Add(sua);
+            Controls.Add(xoa);
+            Controls.Add(timkiem);
+            Controls.Add(them);
+            Controls.Add(dgvKhoa);
+            Controls.Add(txtTenKhoa);
+            Controls.Add(txtTimKiem);
+            Controls.Add(txtMaKhoa);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmKhoa";
             Text = "Quản lí thông tin khoa";
+            Load += frmKhoa_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvKhoa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,8 +167,13 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtMaKhoa;
+        private TextBox txtTimKiem;
+        private TextBox txtTenKhoa;
+        private DataGridView dgvKhoa;
+        private Button them;
+        private Button timkiem;
+        private Button xoa;
+        private Button sua;
     }
 }

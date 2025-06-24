@@ -10,7 +10,7 @@ namespace QuanLiDiemDaiHoc.DAL
 {
     public class KhoaDAL
     {
-        private string connStr = "server=localhost;database=QLDiemSinhVien;uid=root;pwd=;";
+        private string connStr = "server=localhost;port=3306;database=QLDiemSinhVien;uid=root;pwd=;";
 
         public List<Khoa> LayTatCa()
         {
