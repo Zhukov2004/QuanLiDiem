@@ -126,6 +126,7 @@
             mnuGiangVien.Name = "mnuGiangVien";
             mnuGiangVien.Size = new Size(180, 22);
             mnuGiangVien.Text = "Giảng viên";
+            mnuGiangVien.Click += mnuGiangVien_Click;
             // 
             // mnuTaiKhoan
             // 
