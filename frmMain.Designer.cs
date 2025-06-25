@@ -75,14 +75,14 @@
             // mnuDangXuat
             // 
             mnuDangXuat.Name = "mnuDangXuat";
-            mnuDangXuat.Size = new Size(180, 22);
+            mnuDangXuat.Size = new Size(128, 22);
             mnuDangXuat.Text = "Đăng xuất";
             mnuDangXuat.Click += mnuDangXuat_Click;
             // 
             // mnuThoat
             // 
             mnuThoat.Name = "mnuThoat";
-            mnuThoat.Size = new Size(180, 22);
+            mnuThoat.Size = new Size(128, 22);
             mnuThoat.Text = "Thoát";
             mnuThoat.Click += mnuThoat_Click;
             // 
@@ -96,42 +96,42 @@
             // mnuSinhVien
             // 
             mnuSinhVien.Name = "mnuSinhVien";
-            mnuSinhVien.Size = new Size(180, 22);
+            mnuSinhVien.Size = new Size(130, 22);
             mnuSinhVien.Text = "Sinh viên";
             mnuSinhVien.Click += mnuSinhVien_Click;
             // 
             // mnuLop
             // 
             mnuLop.Name = "mnuLop";
-            mnuLop.Size = new Size(180, 22);
+            mnuLop.Size = new Size(130, 22);
             mnuLop.Text = "Lớp";
             mnuLop.Click += mnuLop_Click;
             // 
             // mnuNganh
             // 
             mnuNganh.Name = "mnuNganh";
-            mnuNganh.Size = new Size(180, 22);
+            mnuNganh.Size = new Size(130, 22);
             mnuNganh.Text = "Ngành";
             mnuNganh.Click += mnuNganh_Click;
             // 
             // mnuKhoa
             // 
             mnuKhoa.Name = "mnuKhoa";
-            mnuKhoa.Size = new Size(180, 22);
+            mnuKhoa.Size = new Size(130, 22);
             mnuKhoa.Text = "Khoa";
             mnuKhoa.Click += mnuKhoa_Click;
             // 
             // mnuGiangVien
             // 
             mnuGiangVien.Name = "mnuGiangVien";
-            mnuGiangVien.Size = new Size(180, 22);
+            mnuGiangVien.Size = new Size(130, 22);
             mnuGiangVien.Text = "Giảng viên";
             mnuGiangVien.Click += mnuGiangVien_Click;
             // 
             // mnuTaiKhoan
             // 
             mnuTaiKhoan.Name = "mnuTaiKhoan";
-            mnuTaiKhoan.Size = new Size(180, 22);
+            mnuTaiKhoan.Size = new Size(130, 22);
             mnuTaiKhoan.Text = "Tài khoản";
             mnuTaiKhoan.Click += mnuTaiKhoan_Click;
             // 
@@ -145,19 +145,21 @@
             // mnuHocPhan
             // 
             mnuHocPhan.Name = "mnuHocPhan";
-            mnuHocPhan.Size = new Size(167, 22);
+            mnuHocPhan.Size = new Size(180, 22);
             mnuHocPhan.Text = "Học phần";
+            mnuHocPhan.Click += mnuHocPhan_Click;
             // 
             // mnuLopHocPhan
             // 
             mnuLopHocPhan.Name = "mnuLopHocPhan";
-            mnuLopHocPhan.Size = new Size(167, 22);
+            mnuLopHocPhan.Size = new Size(180, 22);
             mnuLopHocPhan.Text = "Lớp học phần";
+            mnuLopHocPhan.Click += mnuLopHocPhan_Click;
             // 
             // mnuDangKyHocPhan
             // 
             mnuDangKyHocPhan.Name = "mnuDangKyHocPhan";
-            mnuDangKyHocPhan.Size = new Size(167, 22);
+            mnuDangKyHocPhan.Size = new Size(180, 22);
             mnuDangKyHocPhan.Text = "Đăng kí học phần";
             // 
             // mnuThongKe

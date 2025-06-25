@@ -115,6 +115,7 @@
             dgvTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTaiKhoan.Location = new Point(376, 18);
             dgvTaiKhoan.Name = "dgvTaiKhoan";
+            dgvTaiKhoan.ReadOnly = true;
             dgvTaiKhoan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTaiKhoan.Size = new Size(527, 257);
             dgvTaiKhoan.TabIndex = 9;

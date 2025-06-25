@@ -104,5 +104,17 @@ namespace QuanLiDiemDaiHoc
             frmTaiKhoan tk = new frmTaiKhoan();
             tk.Show();
         }
+
+        private void mnuHocPhan_Click(object sender, EventArgs e)
+        {
+            frmHocPhan hocphan = new frmHocPhan();
+            hocphan.Show();
+        }
+
+        private void mnuLopHocPhan_Click(object sender, EventArgs e)
+        {
+            frmLopHocPhan lophocphan = new frmLopHocPhan();
+            lophocphan.Show();
+        }
     }
 }
