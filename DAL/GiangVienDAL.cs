@@ -10,7 +10,7 @@ namespace QuanLiDiemDaiHoc.DAL
 {
     public class GiangVienDAL
     {
-        private string connStr = "server=localhost;port=3306;database=QLDiemSinhVien;uid=root;pwd=;Allow Zero Datetime=true;Convert Zero Datetime=true;";
+        private string connStr = "server=localhost;port=3306;database=QLDiemSinhVien;uid=root;pwd=;";
 
         public List<GiangVien> LayTatCa()
         {

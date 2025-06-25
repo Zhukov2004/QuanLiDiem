@@ -98,5 +98,11 @@ namespace QuanLiDiemDaiHoc
             frmGiangVien giangvien = new frmGiangVien();
             giangvien.Show();
         }
+
+        private void mnuTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frmTaiKhoan tk = new frmTaiKhoan();
+            tk.Show();
+        }
     }
 }

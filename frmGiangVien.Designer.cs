@@ -153,6 +153,8 @@
             dgvGiangVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGiangVien.Location = new Point(398, 24);
             dgvGiangVien.Name = "dgvGiangVien";
+            dgvGiangVien.ReadOnly = true;
+            dgvGiangVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGiangVien.Size = new Size(540, 224);
             dgvGiangVien.TabIndex = 12;
             dgvGiangVien.CellClick += dgvGiangVien_CellClick;
@@ -240,6 +242,7 @@
             Name = "frmGiangVien";
             Text = "frmGiangVien";
             Load += frmGiangVien_Load;
+            Click += frmGiangVien_Click;
             ((System.ComponentModel.ISupportInitialize)dgvGiangVien).EndInit();
             ResumeLayout(false);
             PerformLayout();

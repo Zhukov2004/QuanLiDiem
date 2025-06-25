@@ -109,5 +109,26 @@ namespace QuanLiDiemDaiHoc
             cboGioiTinh.SelectedIndex = 0;
             dgvGiangVien.DataSource = controller.LayDanhSach();
         }
+
+        private void frmGiangVien_Click(object sender, EventArgs e)
+        {
+            // Lấy control được click
+            Control ctl = this.GetChildAtPoint(this.PointToClient(Cursor.Position));
+
+            // Nếu không click vào control nào thì xóa
+            if (ctl == null)
+                XoaO();
+        }
+        private void XoaO()
+        {
+            txtMaGV.Clear();
+            txtHoTen.Clear();
+            txtTrinhDo.Clear();
+            txtBoMon.Clear();
+            txtTimKiem.Clear();
+            cboGioiTinh.SelectedIndex = -1;
+            dtpNgaySinh.Value = DateTime.Today;
+        }
+
     }
 }

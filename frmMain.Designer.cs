@@ -75,14 +75,14 @@
             // mnuDangXuat
             // 
             mnuDangXuat.Name = "mnuDangXuat";
-            mnuDangXuat.Size = new Size(128, 22);
+            mnuDangXuat.Size = new Size(180, 22);
             mnuDangXuat.Text = "Đăng xuất";
             mnuDangXuat.Click += mnuDangXuat_Click;
             // 
             // mnuThoat
             // 
             mnuThoat.Name = "mnuThoat";
-            mnuThoat.Size = new Size(128, 22);
+            mnuThoat.Size = new Size(180, 22);
             mnuThoat.Text = "Thoát";
             mnuThoat.Click += mnuThoat_Click;
             // 
@@ -133,6 +133,7 @@
             mnuTaiKhoan.Name = "mnuTaiKhoan";
             mnuTaiKhoan.Size = new Size(180, 22);
             mnuTaiKhoan.Text = "Tài khoản";
+            mnuTaiKhoan.Click += mnuTaiKhoan_Click;
             // 
             // mnuHocTap
             // 
