@@ -125,8 +125,19 @@ namespace QuanLiDiemDaiHoc
 
         private void mnuThongKeHocBong_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void mnuNhapDiem_Click(object sender, EventArgs e)
+        {
             frmDiem diem = new frmDiem();
             diem.Show();
+        }
+
+        private void mnuHocLai_Click(object sender, EventArgs e)
+        {
+            frmHocLai hoclai = new frmHocLai();
+            hoclai.Show();
         }
     }
 }

@@ -30,6 +30,8 @@ namespace QuanLiDiemDaiHoc
             cboMaLHP.DataSource = new LopHocPhanController().LayDanhSach();
             cboMaLHP.DisplayMember = "MaLHP";
             cboMaLHP.ValueMember = "MaLHP";
+            cboMaSV.SelectedIndex = -1;
+            cboMaLHP.SelectedIndex = -1;
 
             dgvDiem.DataSource = controller.LayDanhSach();
         }

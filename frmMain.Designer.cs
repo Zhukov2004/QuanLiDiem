@@ -43,15 +43,14 @@
             mnuHocPhan = new ToolStripMenuItem();
             mnuLopHocPhan = new ToolStripMenuItem();
             mnuDangKyHocPhan = new ToolStripMenuItem();
-            mnuThongKe = new ToolStripMenuItem();
-            mnuThongKeHocBong = new ToolStripMenuItem();
-            mnuThongKeTotNghiep = new ToolStripMenuItem();
-            mnuXuatBaoCao = new ToolStripMenuItem();
             mnuDiem = new ToolStripMenuItem();
             mnuNhapDiem = new ToolStripMenuItem();
             mnuHocLai = new ToolStripMenuItem();
             mnuCanhBao = new ToolStripMenuItem();
             mnuTotNghiep = new ToolStripMenuItem();
+            mnuThongKe = new ToolStripMenuItem();
+            mnuThongKeTotNghiep = new ToolStripMenuItem();
+            mnuXuatBaoCao = new ToolStripMenuItem();
             label1 = new Label();
             menuMain.SuspendLayout();
             SuspendLayout();
@@ -163,19 +162,45 @@
             mnuDangKyHocPhan.Text = "Đăng kí học phần";
             mnuDangKyHocPhan.Click += mnuDangKyHocPhan_Click;
             // 
+            // mnuDiem
+            // 
+            mnuDiem.DropDownItems.AddRange(new ToolStripItem[] { mnuNhapDiem, mnuHocLai, mnuCanhBao, mnuTotNghiep });
+            mnuDiem.Name = "mnuDiem";
+            mnuDiem.Size = new Size(116, 20);
+            mnuDiem.Text = "Điểm số và học vụ";
+            // 
+            // mnuNhapDiem
+            // 
+            mnuNhapDiem.Name = "mnuNhapDiem";
+            mnuNhapDiem.Size = new Size(180, 22);
+            mnuNhapDiem.Text = "Nhập điểm";
+            mnuNhapDiem.Click += mnuNhapDiem_Click;
+            // 
+            // mnuHocLai
+            // 
+            mnuHocLai.Name = "mnuHocLai";
+            mnuHocLai.Size = new Size(180, 22);
+            mnuHocLai.Text = "Học lại";
+            mnuHocLai.Click += mnuHocLai_Click;
+            // 
+            // mnuCanhBao
+            // 
+            mnuCanhBao.Name = "mnuCanhBao";
+            mnuCanhBao.Size = new Size(180, 22);
+            mnuCanhBao.Text = "Cảnh báo học tập";
+            // 
+            // mnuTotNghiep
+            // 
+            mnuTotNghiep.Name = "mnuTotNghiep";
+            mnuTotNghiep.Size = new Size(180, 22);
+            mnuTotNghiep.Text = "Xét tốt nghiệp";
+            // 
             // mnuThongKe
             // 
-            mnuThongKe.DropDownItems.AddRange(new ToolStripItem[] { mnuThongKeHocBong, mnuThongKeTotNghiep, mnuXuatBaoCao });
+            mnuThongKe.DropDownItems.AddRange(new ToolStripItem[] { mnuThongKeTotNghiep, mnuXuatBaoCao });
             mnuThongKe.Name = "mnuThongKe";
             mnuThongKe.Size = new Size(128, 20);
             mnuThongKe.Text = "Thống kê và báo cáo";
-            // 
-            // mnuThongKeHocBong
-            // 
-            mnuThongKeHocBong.Name = "mnuThongKeHocBong";
-            mnuThongKeHocBong.Size = new Size(172, 22);
-            mnuThongKeHocBong.Text = "Học bổng";
-            mnuThongKeHocBong.Click += mnuThongKeHocBong_Click;
             // 
             // mnuThongKeTotNghiep
             // 
@@ -188,37 +213,6 @@
             mnuXuatBaoCao.Name = "mnuXuatBaoCao";
             mnuXuatBaoCao.Size = new Size(172, 22);
             mnuXuatBaoCao.Text = "Xuất PDF/Excel";
-            // 
-            // mnuDiem
-            // 
-            mnuDiem.DropDownItems.AddRange(new ToolStripItem[] { mnuNhapDiem, mnuHocLai, mnuCanhBao, mnuTotNghiep });
-            mnuDiem.Name = "mnuDiem";
-            mnuDiem.Size = new Size(116, 20);
-            mnuDiem.Text = "Điểm số và học vụ";
-            // 
-            // mnuNhapDiem
-            // 
-            mnuNhapDiem.Name = "mnuNhapDiem";
-            mnuNhapDiem.Size = new Size(168, 22);
-            mnuNhapDiem.Text = "Nhập điểm";
-            // 
-            // mnuHocLai
-            // 
-            mnuHocLai.Name = "mnuHocLai";
-            mnuHocLai.Size = new Size(168, 22);
-            mnuHocLai.Text = "Học lại";
-            // 
-            // mnuCanhBao
-            // 
-            mnuCanhBao.Name = "mnuCanhBao";
-            mnuCanhBao.Size = new Size(168, 22);
-            mnuCanhBao.Text = "Cảnh báo học tập";
-            // 
-            // mnuTotNghiep
-            // 
-            mnuTotNghiep.Name = "mnuTotNghiep";
-            mnuTotNghiep.Size = new Size(168, 22);
-            mnuTotNghiep.Text = "Xét tốt nghiệp";
             // 
             // label1
             // 
@@ -266,7 +260,6 @@
         private ToolStripMenuItem nhậpĐiểmToolStripMenuItem;
         private ToolStripMenuItem họcLạiToolStripMenuItem;
         private ToolStripMenuItem cảnhCáoHọcTậpToolStripMenuItem;
-        private ToolStripMenuItem mnuThongKeHocBong;
         private ToolStripMenuItem mnuThongKeTotNghiep;
         private ToolStripMenuItem mnuXuatBaoCao;
         private ToolStripMenuItem mnuDiem;
