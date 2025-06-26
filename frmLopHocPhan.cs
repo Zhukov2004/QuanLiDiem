@@ -37,14 +37,14 @@ namespace QuanLiDiemDaiHoc
             // Load combo học phần
             HocPhanController hocPhanController = new HocPhanController();
             cboMaHP.DataSource = hocPhanController.LayDanhSach();
-            cboMaHP.DisplayMember = "TenHP";
+            cboMaHP.DisplayMember = "MaHP";
             cboMaHP.ValueMember = "MaHP";
             cboMaHP.SelectedIndex = -1;
 
             // Load combo giảng viên
             GiangVienController gvController = new GiangVienController();
             cboMaGV.DataSource = gvController.LayDanhSach();
-            cboMaGV.DisplayMember = "HoTen";
+            cboMaGV.DisplayMember = "MaGV";
             cboMaGV.ValueMember = "MaGV";
             cboMaGV.SelectedIndex = -1;
 

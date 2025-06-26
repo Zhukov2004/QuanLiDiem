@@ -58,7 +58,7 @@
             // 
             // menuMain
             // 
-            menuMain.Items.AddRange(new ToolStripItem[] { mnuHeThong, mnuQuanLy, mnuHocTap, mnuThongKe, mnuDiem });
+            menuMain.Items.AddRange(new ToolStripItem[] { mnuHeThong, mnuQuanLy, mnuHocTap, mnuDiem, mnuThongKe });
             menuMain.Location = new Point(0, 0);
             menuMain.Name = "menuMain";
             menuMain.Size = new Size(800, 24);
@@ -145,22 +145,23 @@
             // mnuHocPhan
             // 
             mnuHocPhan.Name = "mnuHocPhan";
-            mnuHocPhan.Size = new Size(180, 22);
+            mnuHocPhan.Size = new Size(167, 22);
             mnuHocPhan.Text = "Học phần";
             mnuHocPhan.Click += mnuHocPhan_Click;
             // 
             // mnuLopHocPhan
             // 
             mnuLopHocPhan.Name = "mnuLopHocPhan";
-            mnuLopHocPhan.Size = new Size(180, 22);
+            mnuLopHocPhan.Size = new Size(167, 22);
             mnuLopHocPhan.Text = "Lớp học phần";
             mnuLopHocPhan.Click += mnuLopHocPhan_Click;
             // 
             // mnuDangKyHocPhan
             // 
             mnuDangKyHocPhan.Name = "mnuDangKyHocPhan";
-            mnuDangKyHocPhan.Size = new Size(180, 22);
+            mnuDangKyHocPhan.Size = new Size(167, 22);
             mnuDangKyHocPhan.Text = "Đăng kí học phần";
+            mnuDangKyHocPhan.Click += mnuDangKyHocPhan_Click;
             // 
             // mnuThongKe
             // 
@@ -174,6 +175,7 @@
             mnuThongKeHocBong.Name = "mnuThongKeHocBong";
             mnuThongKeHocBong.Size = new Size(172, 22);
             mnuThongKeHocBong.Text = "Học bổng";
+            mnuThongKeHocBong.Click += mnuThongKeHocBong_Click;
             // 
             // mnuThongKeTotNghiep
             // 

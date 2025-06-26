@@ -116,5 +116,17 @@ namespace QuanLiDiemDaiHoc
             frmLopHocPhan lophocphan = new frmLopHocPhan();
             lophocphan.Show();
         }
+
+        private void mnuDangKyHocPhan_Click(object sender, EventArgs e)
+        {
+            frmDangKyHocPhan dangkyhocphan = new frmDangKyHocPhan();
+            dangkyhocphan.Show();
+        }
+
+        private void mnuThongKeHocBong_Click(object sender, EventArgs e)
+        {
+            frmDiem diem = new frmDiem();
+            diem.Show();
+        }
     }
 }
