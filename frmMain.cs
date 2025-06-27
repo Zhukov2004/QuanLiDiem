@@ -156,5 +156,11 @@ namespace QuanLiDiemDaiHoc
             frmTotNghiep totnghiep = new frmTotNghiep();
             totnghiep.Show();
         }
+
+        private void mnuXuatBaoCao_Click(object sender, EventArgs e)
+        {
+            frmXuatDuLieu xuatdulieu = new frmXuatDuLieu();
+            xuatdulieu.Show();
+        }
     }
 }

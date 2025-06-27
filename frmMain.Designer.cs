@@ -171,21 +171,21 @@
             // mnuNhapDiem
             // 
             mnuNhapDiem.Name = "mnuNhapDiem";
-            mnuNhapDiem.Size = new Size(180, 22);
+            mnuNhapDiem.Size = new Size(168, 22);
             mnuNhapDiem.Text = "Nhập điểm";
             mnuNhapDiem.Click += mnuNhapDiem_Click;
             // 
             // mnuHocLai
             // 
             mnuHocLai.Name = "mnuHocLai";
-            mnuHocLai.Size = new Size(180, 22);
+            mnuHocLai.Size = new Size(168, 22);
             mnuHocLai.Text = "Học lại";
             mnuHocLai.Click += mnuHocLai_Click;
             // 
             // mnuCanhBao
             // 
             mnuCanhBao.Name = "mnuCanhBao";
-            mnuCanhBao.Size = new Size(180, 22);
+            mnuCanhBao.Size = new Size(168, 22);
             mnuCanhBao.Text = "Cảnh báo học tập";
             mnuCanhBao.Click += mnuCanhBao_Click;
             // 
@@ -208,6 +208,7 @@
             mnuXuatBaoCao.Name = "mnuXuatBaoCao";
             mnuXuatBaoCao.Size = new Size(180, 22);
             mnuXuatBaoCao.Text = "Xuất PDF/Excel";
+            mnuXuatBaoCao.Click += mnuXuatBaoCao_Click;
             // 
             // label1
             // 
