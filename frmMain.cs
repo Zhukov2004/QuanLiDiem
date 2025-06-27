@@ -139,5 +139,22 @@ namespace QuanLiDiemDaiHoc
             frmHocLai hoclai = new frmHocLai();
             hoclai.Show();
         }
+
+        private void mnuCanhBao_Click(object sender, EventArgs e)
+        {
+            frmCanhBaoHocTap canhbao = new frmCanhBaoHocTap();
+            canhbao.Show();
+        }
+
+        private void mnuTotNghiep_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuThongKeTotNghiep_Click(object sender, EventArgs e)
+        {
+            frmTotNghiep totnghiep = new frmTotNghiep();
+            totnghiep.Show();
+        }
     }
 }

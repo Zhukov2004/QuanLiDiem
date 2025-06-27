@@ -47,7 +47,6 @@
             mnuNhapDiem = new ToolStripMenuItem();
             mnuHocLai = new ToolStripMenuItem();
             mnuCanhBao = new ToolStripMenuItem();
-            mnuTotNghiep = new ToolStripMenuItem();
             mnuThongKe = new ToolStripMenuItem();
             mnuThongKeTotNghiep = new ToolStripMenuItem();
             mnuXuatBaoCao = new ToolStripMenuItem();
@@ -164,7 +163,7 @@
             // 
             // mnuDiem
             // 
-            mnuDiem.DropDownItems.AddRange(new ToolStripItem[] { mnuNhapDiem, mnuHocLai, mnuCanhBao, mnuTotNghiep });
+            mnuDiem.DropDownItems.AddRange(new ToolStripItem[] { mnuNhapDiem, mnuHocLai, mnuCanhBao });
             mnuDiem.Name = "mnuDiem";
             mnuDiem.Size = new Size(116, 20);
             mnuDiem.Text = "Điểm số và học vụ";
@@ -188,12 +187,7 @@
             mnuCanhBao.Name = "mnuCanhBao";
             mnuCanhBao.Size = new Size(180, 22);
             mnuCanhBao.Text = "Cảnh báo học tập";
-            // 
-            // mnuTotNghiep
-            // 
-            mnuTotNghiep.Name = "mnuTotNghiep";
-            mnuTotNghiep.Size = new Size(180, 22);
-            mnuTotNghiep.Text = "Xét tốt nghiệp";
+            mnuCanhBao.Click += mnuCanhBao_Click;
             // 
             // mnuThongKe
             // 
@@ -205,13 +199,14 @@
             // mnuThongKeTotNghiep
             // 
             mnuThongKeTotNghiep.Name = "mnuThongKeTotNghiep";
-            mnuThongKeTotNghiep.Size = new Size(172, 22);
+            mnuThongKeTotNghiep.Size = new Size(180, 22);
             mnuThongKeTotNghiep.Text = "Kết quả tốt nghiệp";
+            mnuThongKeTotNghiep.Click += mnuThongKeTotNghiep_Click;
             // 
             // mnuXuatBaoCao
             // 
             mnuXuatBaoCao.Name = "mnuXuatBaoCao";
-            mnuXuatBaoCao.Size = new Size(172, 22);
+            mnuXuatBaoCao.Size = new Size(180, 22);
             mnuXuatBaoCao.Text = "Xuất PDF/Excel";
             // 
             // label1
@@ -266,7 +261,6 @@
         private ToolStripMenuItem mnuNhapDiem;
         private ToolStripMenuItem mnuHocLai;
         private ToolStripMenuItem mnuCanhBao;
-        private ToolStripMenuItem mnuTotNghiep;
         private Label label1;
     }
 }

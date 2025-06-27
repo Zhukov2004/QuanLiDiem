@@ -105,7 +105,7 @@
             Controls.Add(label1);
             ForeColor = Color.Red;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Đăng nhập";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
