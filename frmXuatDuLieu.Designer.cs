@@ -67,7 +67,7 @@
             // 
             // excel
             // 
-            excel.Location = new Point(479, 19);
+            excel.Location = new Point(485, 19);
             excel.Name = "excel";
             excel.Size = new Size(75, 23);
             excel.TabIndex = 3;

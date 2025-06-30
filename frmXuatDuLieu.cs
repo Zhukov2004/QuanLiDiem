@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLiDiemDaiHoc.Controllers;
 using ClosedXML.Excel;
-
-
 namespace QuanLiDiemDaiHoc
 {
     public partial class frmXuatDuLieu : Form
     {
+
         public frmXuatDuLieu()
         {
             InitializeComponent();
@@ -60,7 +59,7 @@ namespace QuanLiDiemDaiHoc
             var dialog = new SaveFileDialog
             {
                 Filter = "Excel file (*.xlsx)|*.xlsx",
-                FileName = "XuatDuLieu_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx"
+                FileName = "XuatDuLieu_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx"
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -97,5 +96,11 @@ namespace QuanLiDiemDaiHoc
         {
 
         }
+
+        private void pdf_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
