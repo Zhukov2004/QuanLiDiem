@@ -67,7 +67,7 @@
             // 
             // excel
             // 
-            excel.Location = new Point(485, 19);
+            excel.Location = new Point(545, 19);
             excel.Name = "excel";
             excel.Size = new Size(75, 23);
             excel.TabIndex = 3;
@@ -86,6 +86,7 @@
             Controls.Add(label1);
             Name = "frmXuatDuLieu";
             Text = "Xuất danh sách";
+            Load += frmXuatDuLieu_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDuLieu).EndInit();
             ResumeLayout(false);
             PerformLayout();
