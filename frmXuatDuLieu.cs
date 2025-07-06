@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLiDiemDaiHoc.Controllers;
 using ClosedXML.Excel;
 using System.IO;
+using System.Drawing.Drawing2D;
 namespace QuanLiDiemDaiHoc
 {
     public partial class frmXuatDuLieu : Form
@@ -19,6 +20,8 @@ namespace QuanLiDiemDaiHoc
         {
             InitializeComponent();
         }
+        private System.Windows.Forms.Timer timerGradient;
+        private float gradientAngle = 0;
 
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -159,7 +162,36 @@ namespace QuanLiDiemDaiHoc
 
         private void frmXuatDuLieu_Load(object sender, EventArgs e)
         {
-
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.UpdateStyles();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 10; // tốc độ làm mới (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 2f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // yêu cầu vẽ lại
+            };
+            timerGradient.Start();
         }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+
+            Rectangle rect = this.ClientRectangle;
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(255, 90, 90), 
+                Color.FromArgb(255, 160, 0),  
+
+                gradientAngle))                  // Góc động
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, rect);
+            }
+        }
+
     }
 }

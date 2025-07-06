@@ -18,10 +18,11 @@ namespace QuanLiDiemDaiHoc.Controllers
             {
                 conn.Open();
                 var cmd = new MySqlCommand(@"
-            SELECT sv.MaSV, sv.HoTen, mh.MaHP, mh.TenHP
-            FROM DangKy dk
-            JOIN SinhVien sv ON dk.MaSV = sv.MaSV
-            JOIN MonHoc mh ON dk.MaHP = mh.MaHP", conn);
+        SELECT sv.MaSV, sv.HoTen, hp.MaHP, hp.TenHP, dk.HocKy, dk.NamHoc
+        FROM DangKyHocPhan dk
+        JOIN SinhVien sv ON dk.MaSV = sv.MaSV
+        JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+        JOIN HocPhan hp ON lhp.MaHP = hp.MaHP", conn);
 
                 var rd = cmd.ExecuteReader();
                 while (rd.Read())
@@ -31,11 +32,14 @@ namespace QuanLiDiemDaiHoc.Controllers
                         MaSV = rd["MaSV"].ToString(),
                         HoTen = rd["HoTen"].ToString(),
                         MaHP = rd["MaHP"].ToString(),
-                        TenHP = rd["TenHP"].ToString()
+                        TenHP = rd["TenHP"].ToString(),
+                        HocKy = rd["HocKy"].ToString(),
+                        NamHoc = rd["NamHoc"].ToString()
                     });
                 }
             }
             return ds;
+
         }
 
     }

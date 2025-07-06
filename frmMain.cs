@@ -20,7 +20,7 @@ namespace QuanLiDiemDaiHoc
 
         public frmMain(string vaitro)
         {
-            InitializeComponent();
+            InitializeGunaUI();
             VaiTro = vaitro;
         }
 
@@ -28,11 +28,14 @@ namespace QuanLiDiemDaiHoc
         {
             if (VaiTro == "User")
             {
-                mnuGiangVien.Visible = false;
-                mnuTaiKhoan.Visible = false;
-                mnuThongKe.Visible = false;
+                itemGiangVien.Visible = false;
+                itemTaiKhoan.Visible = false;
+
+                itemThongKeTotNghiep.Visible = false;
+                itemXuatBaoCao.Visible = false;
             }
-            label1.Text = $"Xin chào: {VaiTro}";
+
+
         }
 
         private void điểmSốVàHọcVụToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,5 +165,58 @@ namespace QuanLiDiemDaiHoc
             frmXuatDuLieu xuatdulieu = new frmXuatDuLieu();
             xuatdulieu.Show();
         }
+
+        private void frmMain_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
+    public class LightMenuRenderer : ToolStripProfessionalRenderer
+    {
+        private readonly Color hoverColor;
+        public LightMenuRenderer(Color hover)
+            : base(new LightColorTable(hover)) => hoverColor = hover;
+
+        private class LightColorTable : ProfessionalColorTable
+        {
+            private readonly Color hover;
+            public LightColorTable(Color hoverColor) => hover = hoverColor;
+
+            public override Color MenuItemSelected => hover;
+            public override Color ToolStripDropDownBackground => Color.White;
+            public override Color MenuItemBorder => Color.LightGray;
+            public override Color MenuBorder => Color.LightBlue;
+            public override Color ImageMarginGradientBegin => Color.White;
+            public override Color ImageMarginGradientMiddle => Color.White;
+            public override Color ImageMarginGradientEnd => Color.White;
+        }
+    }
+
+    public class RoundedContextMenuStrip : ContextMenuStrip
+    {
+        public int CornerRadius { get; set; } = 8;
+
+        public RoundedContextMenuStrip()
+        {
+            this.Padding = Padding.Empty;
+            this.DropShadowEnabled = false;
+            this.Opening += (s, e) => ApplyRoundedCorners();
+        }
+
+        private void ApplyRoundedCorners()
+        {
+            var path = new System.Drawing.Drawing2D.GraphicsPath();
+            int w = this.Width, h = this.Height, r = CornerRadius;
+
+            path.AddArc(0, 0, r, r, 180, 90);
+            path.AddArc(w - r, 0, r, r, 270, 90);
+            path.AddArc(w - r, h - r, r, r, 0, 90);
+            path.AddArc(0, h - r, r, r, 90, 90);
+            path.CloseAllFigures();
+
+            this.Region = new Region(path);
+        }
+    }
+
+
 }

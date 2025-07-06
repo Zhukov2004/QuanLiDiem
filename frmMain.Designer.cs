@@ -1,4 +1,6 @@
-﻿namespace QuanLiDiemDaiHoc
+﻿using Guna.UI2.WinForms;
+
+namespace QuanLiDiemDaiHoc
 {
     partial class frmMain
     {
@@ -6,6 +8,21 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        // Guna2 controls
+        private Guna2Panel panelMenu;
+        private Guna2ControlBox btnClose;
+
+        // Context menu cho từng nhóm menu
+        private ContextMenuStrip ctxHeThong;
+        private ContextMenuStrip ctxQuanLy;
+        private ContextMenuStrip ctxHocTap;
+        private ContextMenuStrip ctxDiem;
+        private ContextMenuStrip ctxThongKe;
+        // Context menu items cần ẩn/hiện theo quyền
+        private ToolStripMenuItem itemGiangVien;
+        private ToolStripMenuItem itemTaiKhoan;
+        private ToolStripMenuItem itemThongKeTotNghiep;
+        private ToolStripMenuItem itemXuatBaoCao;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,240 +45,139 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuMain = new MenuStrip();
-            mnuHeThong = new ToolStripMenuItem();
-            mnuDangXuat = new ToolStripMenuItem();
-            mnuThoat = new ToolStripMenuItem();
-            mnuQuanLy = new ToolStripMenuItem();
-            mnuSinhVien = new ToolStripMenuItem();
-            mnuLop = new ToolStripMenuItem();
-            mnuNganh = new ToolStripMenuItem();
-            mnuKhoa = new ToolStripMenuItem();
-            mnuGiangVien = new ToolStripMenuItem();
-            mnuTaiKhoan = new ToolStripMenuItem();
-            mnuHocTap = new ToolStripMenuItem();
-            mnuHocPhan = new ToolStripMenuItem();
-            mnuLopHocPhan = new ToolStripMenuItem();
-            mnuDangKyHocPhan = new ToolStripMenuItem();
-            mnuDiem = new ToolStripMenuItem();
-            mnuNhapDiem = new ToolStripMenuItem();
-            mnuHocLai = new ToolStripMenuItem();
-            mnuCanhBao = new ToolStripMenuItem();
-            mnuThongKe = new ToolStripMenuItem();
-            mnuThongKeTotNghiep = new ToolStripMenuItem();
-            mnuXuatBaoCao = new ToolStripMenuItem();
-            label1 = new Label();
-            menuMain.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuMain
-            // 
-            menuMain.Items.AddRange(new ToolStripItem[] { mnuHeThong, mnuQuanLy, mnuHocTap, mnuDiem, mnuThongKe });
-            menuMain.Location = new Point(0, 0);
-            menuMain.Name = "menuMain";
-            menuMain.Size = new Size(800, 24);
-            menuMain.TabIndex = 0;
-            menuMain.Text = "menuStrip1";
-            // 
-            // mnuHeThong
-            // 
-            mnuHeThong.DropDownItems.AddRange(new ToolStripItem[] { mnuDangXuat, mnuThoat });
-            mnuHeThong.Name = "mnuHeThong";
-            mnuHeThong.Size = new Size(69, 20);
-            mnuHeThong.Text = "Hệ thông";
-            // 
-            // mnuDangXuat
-            // 
-            mnuDangXuat.Name = "mnuDangXuat";
-            mnuDangXuat.Size = new Size(128, 22);
-            mnuDangXuat.Text = "Đăng xuất";
-            mnuDangXuat.Click += mnuDangXuat_Click;
-            // 
-            // mnuThoat
-            // 
-            mnuThoat.Name = "mnuThoat";
-            mnuThoat.Size = new Size(128, 22);
-            mnuThoat.Text = "Thoát";
-            mnuThoat.Click += mnuThoat_Click;
-            // 
-            // mnuQuanLy
-            // 
-            mnuQuanLy.DropDownItems.AddRange(new ToolStripItem[] { mnuSinhVien, mnuLop, mnuNganh, mnuKhoa, mnuGiangVien, mnuTaiKhoan });
-            mnuQuanLy.Name = "mnuQuanLy";
-            mnuQuanLy.Size = new Size(109, 20);
-            mnuQuanLy.Text = "Quản lí thông tin";
-            // 
-            // mnuSinhVien
-            // 
-            mnuSinhVien.Name = "mnuSinhVien";
-            mnuSinhVien.Size = new Size(130, 22);
-            mnuSinhVien.Text = "Sinh viên";
-            mnuSinhVien.Click += mnuSinhVien_Click;
-            // 
-            // mnuLop
-            // 
-            mnuLop.Name = "mnuLop";
-            mnuLop.Size = new Size(130, 22);
-            mnuLop.Text = "Lớp";
-            mnuLop.Click += mnuLop_Click;
-            // 
-            // mnuNganh
-            // 
-            mnuNganh.Name = "mnuNganh";
-            mnuNganh.Size = new Size(130, 22);
-            mnuNganh.Text = "Ngành";
-            mnuNganh.Click += mnuNganh_Click;
-            // 
-            // mnuKhoa
-            // 
-            mnuKhoa.Name = "mnuKhoa";
-            mnuKhoa.Size = new Size(130, 22);
-            mnuKhoa.Text = "Khoa";
-            mnuKhoa.Click += mnuKhoa_Click;
-            // 
-            // mnuGiangVien
-            // 
-            mnuGiangVien.Name = "mnuGiangVien";
-            mnuGiangVien.Size = new Size(130, 22);
-            mnuGiangVien.Text = "Giảng viên";
-            mnuGiangVien.Click += mnuGiangVien_Click;
-            // 
-            // mnuTaiKhoan
-            // 
-            mnuTaiKhoan.Name = "mnuTaiKhoan";
-            mnuTaiKhoan.Size = new Size(130, 22);
-            mnuTaiKhoan.Text = "Tài khoản";
-            mnuTaiKhoan.Click += mnuTaiKhoan_Click;
-            // 
-            // mnuHocTap
-            // 
-            mnuHocTap.DropDownItems.AddRange(new ToolStripItem[] { mnuHocPhan, mnuLopHocPhan, mnuDangKyHocPhan });
-            mnuHocTap.Name = "mnuHocTap";
-            mnuHocTap.Size = new Size(61, 20);
-            mnuHocTap.Text = "Học tập";
-            // 
-            // mnuHocPhan
-            // 
-            mnuHocPhan.Name = "mnuHocPhan";
-            mnuHocPhan.Size = new Size(167, 22);
-            mnuHocPhan.Text = "Học phần";
-            mnuHocPhan.Click += mnuHocPhan_Click;
-            // 
-            // mnuLopHocPhan
-            // 
-            mnuLopHocPhan.Name = "mnuLopHocPhan";
-            mnuLopHocPhan.Size = new Size(167, 22);
-            mnuLopHocPhan.Text = "Lớp học phần";
-            mnuLopHocPhan.Click += mnuLopHocPhan_Click;
-            // 
-            // mnuDangKyHocPhan
-            // 
-            mnuDangKyHocPhan.Name = "mnuDangKyHocPhan";
-            mnuDangKyHocPhan.Size = new Size(167, 22);
-            mnuDangKyHocPhan.Text = "Đăng kí học phần";
-            mnuDangKyHocPhan.Click += mnuDangKyHocPhan_Click;
-            // 
-            // mnuDiem
-            // 
-            mnuDiem.DropDownItems.AddRange(new ToolStripItem[] { mnuNhapDiem, mnuHocLai, mnuCanhBao });
-            mnuDiem.Name = "mnuDiem";
-            mnuDiem.Size = new Size(116, 20);
-            mnuDiem.Text = "Điểm số và học vụ";
-            // 
-            // mnuNhapDiem
-            // 
-            mnuNhapDiem.Name = "mnuNhapDiem";
-            mnuNhapDiem.Size = new Size(168, 22);
-            mnuNhapDiem.Text = "Nhập điểm";
-            mnuNhapDiem.Click += mnuNhapDiem_Click;
-            // 
-            // mnuHocLai
-            // 
-            mnuHocLai.Name = "mnuHocLai";
-            mnuHocLai.Size = new Size(168, 22);
-            mnuHocLai.Text = "Học lại";
-            mnuHocLai.Click += mnuHocLai_Click;
-            // 
-            // mnuCanhBao
-            // 
-            mnuCanhBao.Name = "mnuCanhBao";
-            mnuCanhBao.Size = new Size(168, 22);
-            mnuCanhBao.Text = "Cảnh báo học tập";
-            mnuCanhBao.Click += mnuCanhBao_Click;
-            // 
-            // mnuThongKe
-            // 
-            mnuThongKe.DropDownItems.AddRange(new ToolStripItem[] { mnuThongKeTotNghiep, mnuXuatBaoCao });
-            mnuThongKe.Name = "mnuThongKe";
-            mnuThongKe.Size = new Size(128, 20);
-            mnuThongKe.Text = "Thống kê và báo cáo";
-            // 
-            // mnuThongKeTotNghiep
-            // 
-            mnuThongKeTotNghiep.Name = "mnuThongKeTotNghiep";
-            mnuThongKeTotNghiep.Size = new Size(180, 22);
-            mnuThongKeTotNghiep.Text = "Kết quả tốt nghiệp";
-            mnuThongKeTotNghiep.Click += mnuThongKeTotNghiep_Click;
-            // 
-            // mnuXuatBaoCao
-            // 
-            mnuXuatBaoCao.Name = "mnuXuatBaoCao";
-            mnuXuatBaoCao.Size = new Size(180, 22);
-            mnuXuatBaoCao.Text = "Xuất PDF/Excel";
-            mnuXuatBaoCao.Click += mnuXuatBaoCao_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(638, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 15);
-            label1.TabIndex = 1;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(menuMain);
-            MainMenuStrip = menuMain;
+            ClientSize = new Size(284, 261);
             Name = "frmMain";
-            Text = "Menu";
-            Load += frmMain_Load;
-            menuMain.ResumeLayout(false);
-            menuMain.PerformLayout();
+            Load += frmMain_Load_1;
             ResumeLayout(false);
-            PerformLayout();
+
         }
 
         #endregion
 
-        private MenuStrip menuMain;
-        private ToolStripMenuItem mnuHeThong;
-        private ToolStripMenuItem mnuQuanLy;
-        private ToolStripMenuItem mnuHocTap;
-        private ToolStripMenuItem mnuThongKe;
-        private ToolStripMenuItem mnuDangXuat;
-        private ToolStripMenuItem mnuThoat;
-        private ToolStripMenuItem mnuSinhVien;
-        private ToolStripMenuItem mnuLop;
-        private ToolStripMenuItem mnuNganh;
-        private ToolStripMenuItem mnuKhoa;
-        private ToolStripMenuItem mnuGiangVien;
-        private ToolStripMenuItem mnuTaiKhoan;
-        private ToolStripMenuItem mnuHocPhan;
-        private ToolStripMenuItem mnuLopHocPhan;
-        private ToolStripMenuItem mnuDangKyHocPhan;
-        private ToolStripMenuItem nhậpĐiểmToolStripMenuItem;
-        private ToolStripMenuItem họcLạiToolStripMenuItem;
-        private ToolStripMenuItem cảnhCáoHọcTậpToolStripMenuItem;
-        private ToolStripMenuItem mnuThongKeTotNghiep;
-        private ToolStripMenuItem mnuXuatBaoCao;
-        private ToolStripMenuItem mnuDiem;
-        private ToolStripMenuItem mnuNhapDiem;
-        private ToolStripMenuItem mnuHocLai;
-        private ToolStripMenuItem mnuCanhBao;
-        private Label label1;
+        private void InitializeGunaUI()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(950, 600);
+            this.BackColor = Color.FromArgb(240, 245, 255);
+
+            new Guna2Elipse { BorderRadius = 20, TargetControl = this };
+            new Guna2ShadowForm().SetShadowForm(this);
+
+            // ==== Màu sắc đẹp ====
+            Color menuBg = Color.White;
+            Color menuHover = Color.FromArgb(230, 240, 255);
+            Color menuText = Color.FromArgb(40, 60, 100);
+
+            // ==== Menu hệ thống ====
+            ctxHeThong = CreateMenu(menuText, menuBg, menuHover,
+                new ToolStripMenuItem("Đăng xuất", null, mnuDangXuat_Click),
+                new ToolStripMenuItem("Thoát", null, mnuThoat_Click));
+
+            // ==== Menu quản lý ====
+            itemGiangVien = new ToolStripMenuItem("Giảng viên", null, mnuGiangVien_Click);
+            itemTaiKhoan = new ToolStripMenuItem("Tài khoản", null, mnuTaiKhoan_Click);
+            ctxQuanLy = CreateMenu(menuText, menuBg, menuHover,
+                new ToolStripMenuItem("Sinh viên", null, mnuSinhVien_Click),
+                new ToolStripMenuItem("Lớp", null, mnuLop_Click),
+                new ToolStripMenuItem("Ngành", null, mnuNganh_Click),
+                new ToolStripMenuItem("Khoa", null, mnuKhoa_Click),
+                itemGiangVien,
+                itemTaiKhoan);
+
+            // ==== Menu học tập ====
+            ctxHocTap = CreateMenu(menuText, menuBg, menuHover,
+                new ToolStripMenuItem("Học phần", null, mnuHocPhan_Click),
+                new ToolStripMenuItem("Lớp học phần", null, mnuLopHocPhan_Click),
+                new ToolStripMenuItem("Đăng ký học phần", null, mnuDangKyHocPhan_Click));
+
+            // ==== Menu điểm ====
+            ctxDiem = CreateMenu(menuText, menuBg, menuHover,
+                new ToolStripMenuItem("Nhập điểm", null, mnuNhapDiem_Click),
+                new ToolStripMenuItem("Học lại", null, mnuHocLai_Click),
+                new ToolStripMenuItem("Cảnh báo học tập", null, mnuCanhBao_Click));
+
+            // ==== Menu thống kê ====
+            itemThongKeTotNghiep = new ToolStripMenuItem("Kết quả tốt nghiệp", null, mnuThongKeTotNghiep_Click);
+            itemXuatBaoCao = new ToolStripMenuItem("Xuất PDF/Excel", null, mnuXuatBaoCao_Click);
+            ctxThongKe = CreateMenu(menuText, menuBg, menuHover,
+                itemThongKeTotNghiep,
+                itemXuatBaoCao);
+
+            // ==== Thanh menu ngang =====
+            panelMenu = new Guna2Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                FillColor = Color.FromArgb(225, 235, 255)
+            };
+            this.Controls.Add(panelMenu);
+
+            panelMenu.Controls.Add(CreateMenuButton("Hệ thống", 30, ctxHeThong));
+            panelMenu.Controls.Add(CreateMenuButton("Quản lý", 150, ctxQuanLy));
+            panelMenu.Controls.Add(CreateMenuButton("Học tập", 270, ctxHocTap));
+            panelMenu.Controls.Add(CreateMenuButton("Điểm số", 390, ctxDiem));
+            panelMenu.Controls.Add(CreateMenuButton("Thống kê", 510, ctxThongKe));
+
+            // ==== Nút đóng form ====
+            btnClose = new Guna2ControlBox
+            {
+                IconColor = Color.FromArgb(60, 80, 130),
+                FillColor = Color.Transparent,
+                BorderRadius = 6,
+                HoverState = { FillColor = Color.FromArgb(255, 180, 180) },
+                Location = new Point(this.ClientSize.Width - 45, 10),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
+            };
+            this.Controls.Add(btnClose);
+            this.Resize += (s, e) =>
+            {
+                btnClose.Location = new Point(this.ClientSize.Width - 45, 10);
+            };
+        }
+
+
+
+        private Guna2Button CreateMenuButton(string text, int x, ContextMenuStrip ctx)
+        {
+            var btn = new Guna2Button
+            {
+                Text = text,
+                Location = new Point(x, 10),
+                Size = new Size(110, 40),
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                FillColor = Color.White,
+                ForeColor = Color.SteelBlue,
+                BorderRadius = 10,
+                BorderColor = Color.FromArgb(180, 210, 250),
+                BorderThickness = 1,
+                BackColor = Color.Transparent,
+                Cursor = Cursors.Hand,
+                HoverState = { FillColor = Color.FromArgb(210, 230, 255) }
+            };
+
+            btn.Click += (s, e) =>
+            {
+                ctx.Show(btn, new Point(0, btn.Height));
+            };
+
+            return btn;
+        }
+        private RoundedContextMenuStrip CreateMenu(Color textColor, Color bgColor, Color hoverColor, params ToolStripMenuItem[] items)
+        {
+            var ctx = new RoundedContextMenuStrip();
+            ctx.ForeColor = textColor;
+            ctx.BackColor = bgColor;
+            ctx.Renderer = new LightMenuRenderer(hoverColor);
+            ctx.ShowImageMargin = false;
+            ctx.Items.AddRange(items);
+            return ctx;
+        }
+
+
     }
 }
