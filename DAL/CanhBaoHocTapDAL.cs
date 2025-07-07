@@ -61,8 +61,8 @@ namespace QuanLiDiemDaiHoc.DAL
             using (var conn = new MySqlConnection(connStr))
             {
                 string sql = @"UPDATE CanhBaoHocTap SET 
-                           LyDo=@LyDo, NgayCanhBao=@Ngay 
-                           WHERE MaSV=@MaSV AND NamHoc=@NamHoc AND HocKy=@HocKy";
+                           LyDo=@LyDo, NgayCanhBao=@Ngay, NamHoc=@NamHoc, HocKy=@HocKy
+                           WHERE MaSV=@MaSV ";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@MaSV", cb.MaSV);
                 cmd.Parameters.AddWithValue("@NamHoc", cb.NamHoc);
@@ -79,7 +79,7 @@ namespace QuanLiDiemDaiHoc.DAL
             using (var conn = new MySqlConnection(connStr))
             {
                 string sql = @"DELETE FROM CanhBaoHocTap 
-                           WHERE MaSV=@MaSV AND NamHoc=@NamHoc AND HocKy=@HocKy";
+                           WHERE MaSV=@MaSV ";
                 var cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@MaSV", maSV);
                 cmd.Parameters.AddWithValue("@NamHoc", namHoc);

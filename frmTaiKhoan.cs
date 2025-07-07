@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,24 @@ namespace QuanLiDiemDaiHoc
         {
             InitializeComponent();
         }
+        private float gradientAngle = 0f;
+        private System.Windows.Forms.Timer timerGradient;
+
 
         private void frmTaiKhoan_Load(object sender, EventArgs e)
         {
             cboVaiTro.SelectedIndex = -1;
             dgvTaiKhoan.DataSource = controller.LayDanhSach();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 20; // càng nhỏ càng mượt
+            timerGradient.Tick += (s, e) =>
+            {
+                gradientAngle += 1.5f;
+                if (gradientAngle >= 360f) gradientAngle = 0;
+                this.Invalidate(); // Vẽ lại form
+            };
+            timerGradient.Start();
+
         }
 
         private void dgvTaiKhoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,5 +127,18 @@ namespace QuanLiDiemDaiHoc
                 cboVaiTro.SelectedIndex = -1;
             }
         }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(70, 130, 255), // màu 1
+                Color.FromArgb(255, 90, 90),  // màu 2
+                gradientAngle))               // góc xoay động
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
+
+
     }
 }

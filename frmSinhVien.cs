@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,16 @@ namespace QuanLiDiemDaiHoc
         {
             InitializeComponent();
         }
+        private float gradientAngle = 1.5f;
+        private System.Windows.Forms.Timer timerGradient;
+        private Color[] gradientColors = {
+        Color.MediumSlateBlue,
+        Color.DeepPink,
+        Color.Orange,
+        Color.SpringGreen,
+        Color.Cyan,
+        Color.MediumPurple
+};
 
         private void them_Click(object sender, EventArgs e)
         {
@@ -42,9 +53,24 @@ namespace QuanLiDiemDaiHoc
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
+            
+
             dgvSinhVien.DataSource = controller.LayDanhSach();
             cboGioiTinh.Items.AddRange(new string[] { "F", "M" });
             cboGioiTinh.SelectedIndex = 0;
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.UpdateStyles();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 10; // tốc độ làm mới (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 2f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // yêu cầu vẽ lại
+            };
+            timerGradient.Start();
+
         }
 
         private void sua_Click(object sender, EventArgs e)
@@ -100,5 +126,24 @@ namespace QuanLiDiemDaiHoc
 
             }
         }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+
+            Rectangle rect = this.ClientRectangle;
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rect,
+                Color.FromArgb(255, 90, 90),
+                Color.FromArgb(255, 160, 0),
+
+                gradientAngle))                  // Góc động
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, rect);
+            }
+        }
+
+
     }
 }
