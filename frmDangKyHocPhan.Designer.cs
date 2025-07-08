@@ -52,6 +52,8 @@ namespace QuanLiDiemDaiHoc
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Guna2HtmlLabel();
             label2 = new Guna2HtmlLabel();
             label3 = new Guna2HtmlLabel();
@@ -68,13 +70,15 @@ namespace QuanLiDiemDaiHoc
             xoa = new Guna2Button();
             sua = new Guna2Button();
             formElipse = new Guna2Elipse(components);
+            btnClose = new Guna2ControlBox();
+            drag = new Guna2DragControl(components);
             ((System.ComponentModel.ISupportInitialize)dgvDangKy).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(12, 22);
+            label1.Location = new Point(12, 31);
             label1.Name = "label1";
             label1.Size = new Size(70, 17);
             label1.TabIndex = 0;
@@ -101,7 +105,7 @@ namespace QuanLiDiemDaiHoc
             // label4
             // 
             label4.BackColor = Color.Transparent;
-            label4.Location = new Point(12, 69);
+            label4.Location = new Point(12, 73);
             label4.Name = "label4";
             label4.Size = new Size(93, 17);
             label4.TabIndex = 3;
@@ -129,7 +133,7 @@ namespace QuanLiDiemDaiHoc
             cboMaSV.ForeColor = Color.FromArgb(68, 88, 112);
             cboMaSV.FormattingEnabled = true;
             cboMaSV.ItemHeight = 30;
-            cboMaSV.Location = new Point(141, 19);
+            cboMaSV.Location = new Point(141, 21);
             cboMaSV.Name = "cboMaSV";
             cboMaSV.ShadowDecoration.CustomizableEdges = customizableEdges2;
             cboMaSV.Size = new Size(223, 36);
@@ -148,7 +152,7 @@ namespace QuanLiDiemDaiHoc
             cboMaLHP.ForeColor = Color.FromArgb(68, 88, 112);
             cboMaLHP.FormattingEnabled = true;
             cboMaLHP.ItemHeight = 30;
-            cboMaLHP.Location = new Point(141, 66);
+            cboMaLHP.Location = new Point(141, 63);
             cboMaLHP.Name = "cboMaLHP";
             cboMaLHP.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cboMaLHP.Size = new Size(223, 36);
@@ -157,7 +161,7 @@ namespace QuanLiDiemDaiHoc
             // txtHocKy
             // 
             txtHocKy.BackColor = Color.Transparent;
-            txtHocKy.BorderRadius = 20;
+            txtHocKy.BorderRadius = 12;
             txtHocKy.BorderThickness = 0;
             txtHocKy.CustomizableEdges = customizableEdges5;
             txtHocKy.DefaultText = "";
@@ -173,7 +177,7 @@ namespace QuanLiDiemDaiHoc
             // txtNamHoc
             // 
             txtNamHoc.BackColor = Color.Transparent;
-            txtNamHoc.BorderRadius = 20;
+            txtNamHoc.BorderRadius = 12;
             txtNamHoc.BorderThickness = 0;
             txtNamHoc.CustomizableEdges = customizableEdges7;
             txtNamHoc.DefaultText = "";
@@ -189,7 +193,7 @@ namespace QuanLiDiemDaiHoc
             // txtTimKiem
             // 
             txtTimKiem.BackColor = Color.Transparent;
-            txtTimKiem.BorderRadius = 20;
+            txtTimKiem.BorderRadius = 12;
             txtTimKiem.BorderThickness = 0;
             txtTimKiem.CustomizableEdges = customizableEdges9;
             txtTimKiem.DefaultText = "";
@@ -225,7 +229,7 @@ namespace QuanLiDiemDaiHoc
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDangKy.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDangKy.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDangKy.Location = new Point(412, 46);
+            dgvDangKy.Location = new Point(396, 47);
             dgvDangKy.Name = "dgvDangKy";
             dgvDangKy.ReadOnly = true;
             dgvDangKy.RowHeadersVisible = false;
@@ -262,7 +266,7 @@ namespace QuanLiDiemDaiHoc
             them.FillColor = Color.MediumSeaGreen;
             them.Font = new Font("Segoe UI", 9F);
             them.ForeColor = Color.White;
-            them.Location = new Point(103, 311);
+            them.Location = new Point(128, 311);
             them.Name = "them";
             them.ShadowDecoration.CustomizableEdges = customizableEdges12;
             them.Size = new Size(75, 23);
@@ -284,6 +288,7 @@ namespace QuanLiDiemDaiHoc
             timkiem.TabIndex = 12;
             timkiem.Text = "Tìm kiếm";
             timkiem.Click += timkiem_Click;
+            timkiem.BackColor = Color.Transparent;
             // 
             // xoa
             // 
@@ -299,6 +304,7 @@ namespace QuanLiDiemDaiHoc
             xoa.TabIndex = 13;
             xoa.Text = "Hủy đăng kí";
             xoa.Click += xoa_Click;
+            xoa.BackColor = Color.Transparent;
             // 
             // sua
             // 
@@ -307,24 +313,45 @@ namespace QuanLiDiemDaiHoc
             sua.FillColor = Color.Orange;
             sua.Font = new Font("Segoe UI", 9F);
             sua.ForeColor = Color.White;
-            sua.Location = new Point(325, 311);
+            sua.Location = new Point(332, 311);
             sua.Name = "sua";
             sua.ShadowDecoration.CustomizableEdges = customizableEdges18;
             sua.Size = new Size(75, 23);
             sua.TabIndex = 14;
             sua.Text = "Sửa";
             sua.Click += sua_Click;
+            sua.BackColor = Color.Transparent;
             // 
             // formElipse
             // 
             formElipse.BorderRadius = 20;
             formElipse.TargetControl = this;
             // 
+            // btnClose
+            // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.CustomizableEdges = customizableEdges19;
+            btnClose.FillColor = Color.Transparent;
+            btnClose.IconColor = Color.Red;
+            btnClose.Location = new Point(920, 12);
+            btnClose.Name = "btnClose";
+            btnClose.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnClose.Size = new Size(36, 29);
+            btnClose.TabIndex = 15;
+            // 
+            // drag
+            // 
+            drag.DockIndicatorTransparencyValue = 0.6D;
+            drag.TargetControl = this;
+            drag.UseTransparentDrag = true;
+            // 
             // frmDangKyHocPhan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(968, 401);
+            Controls.Add(btnClose);
             Controls.Add(sua);
             Controls.Add(xoa);
             Controls.Add(timkiem);
@@ -373,5 +400,7 @@ namespace QuanLiDiemDaiHoc
         private Guna2Button xoa;
         private Guna2Button sua;
         private Guna2Elipse formElipse;
+        private Guna2ControlBox btnClose;
+        private Guna2DragControl drag;
     }
 }

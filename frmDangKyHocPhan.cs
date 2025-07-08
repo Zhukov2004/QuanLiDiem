@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,8 @@ namespace QuanLiDiemDaiHoc
                 NamHoc = txtNamHoc.Text.Trim()
             };
         }
-
+        private System.Windows.Forms.Timer timerGradient;
+        private float gradientAngle = 0;
         public frmDangKyHocPhan()
         {
             InitializeComponent();
@@ -49,6 +51,15 @@ namespace QuanLiDiemDaiHoc
 
             // Load danh sách đăng ký
             dgvDangKy.DataSource = controller.LayDanhSach();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 20; // Càng nhỏ càng mượt (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 1.5f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // Gọi lại OnPaintBackground
+            };
+            timerGradient.Start();
         }
 
         private void frmDangKyHocPhan_Click(object sender, EventArgs e)
@@ -58,8 +69,8 @@ namespace QuanLiDiemDaiHoc
             {
                 txtHocKy.Clear();
                 txtNamHoc.Clear();
-                if (cboMaSV.Items.Count > 0) cboMaSV.SelectedIndex = 0;
-                if (cboMaLHP.Items.Count > 0) cboMaLHP.SelectedIndex = 0;
+                if (cboMaSV.Items.Count > 0) cboMaSV.SelectedIndex = -1;
+                if (cboMaLHP.Items.Count > 0) cboMaLHP.SelectedIndex = -1;
             }
         }
 
@@ -131,6 +142,18 @@ namespace QuanLiDiemDaiHoc
                 cboMaLHP.SelectedValue = row.Cells["MaLHP"].Value.ToString();
                 txtHocKy.Text = row.Cells["HocKy"].Value.ToString();
                 txtNamHoc.Text = row.Cells["NamHoc"].Value.ToString();
+            }
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(70, 130, 255),
+                Color.FromArgb(255, 90, 90),
+                gradientAngle))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
     }

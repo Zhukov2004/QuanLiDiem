@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,8 @@ namespace QuanLiDiemDaiHoc
         {
             InitializeComponent();
         }
-
+        private System.Windows.Forms.Timer timerGradient;
+        private float gradientAngle = 0;
         private void frmDiem_Load(object sender, EventArgs e)
         {
             cboMaSV.DataSource = new SinhVienController().LayDanhSach();
@@ -34,6 +36,15 @@ namespace QuanLiDiemDaiHoc
             cboMaLHP.SelectedIndex = -1;
 
             dgvDiem.DataSource = controller.LayDanhSach();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 20; // Càng nhỏ càng mượt (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 1.5f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // Gọi lại OnPaintBackground
+            };
+            timerGradient.Start();
         }
         private string TinhXepLoai(decimal tb)
         {
@@ -137,6 +148,18 @@ namespace QuanLiDiemDaiHoc
             dgvDiem.DataSource = string.IsNullOrWhiteSpace(kw)
                 ? controller.LayDanhSach()
                 : controller.TimKiem(kw);
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(155, 0, 255),   // tím
+                Color.FromArgb(0, 200, 255),    // xanh
+                gradientAngle))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
     }
 }

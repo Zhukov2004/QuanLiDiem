@@ -188,6 +188,8 @@ namespace QuanLiDiemDaiHoc
             ((System.ComponentModel.ISupportInitialize)dgvDuLieu).EndInit();
             ResumeLayout(false);
             PerformLayout();
+            Guna2DragControl drag = new Guna2DragControl();
+            drag.TargetControl = this;
 
         }
 
