@@ -392,6 +392,7 @@ namespace QuanLiDiemDaiHoc
             btnClose.ShadowDecoration.CustomizableEdges = customizableEdges24;
             btnClose.Size = new Size(45, 29);
             btnClose.TabIndex = 19;
+            btnClose.BorderRadius = 10;
             // 
             // formElipse
             // 

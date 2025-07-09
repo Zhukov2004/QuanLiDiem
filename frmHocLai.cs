@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace QuanLiDiemDaiHoc
                 NgayDangKy = dtpNgayDK.Value
             };
         }
-
+        private System.Windows.Forms.Timer timerGradient;
+        private float gradientAngle = 0;
         public frmHocLai()
         {
             InitializeComponent();
@@ -96,6 +98,15 @@ namespace QuanLiDiemDaiHoc
             cboMaSV.SelectedIndex = -1;
             cboMaLHP.SelectedIndex = -1;
             dgvHocLai.DataSource = controller.LayDanhSach();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 20; // Càng nhỏ càng mượt (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 1.5f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // Gọi lại OnPaintBackground
+            };
+            timerGradient.Start();
         }
 
         private void frmHocLai_Click(object sender, EventArgs e)
@@ -109,6 +120,18 @@ namespace QuanLiDiemDaiHoc
                 txtLanHoc.Clear();
                 dtpNgayDK.Value = DateTime.Now;
                 txtTimKiem.Clear();
+            }
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(255, 0, 150), // Neon Magenta
+                Color.FromArgb(0, 255, 255),  // Laser Cyan
+                gradientAngle))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
     }

@@ -145,8 +145,9 @@ namespace QuanLiDiemDaiHoc
         {
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 this.ClientRectangle,
-                Color.FromArgb(255, 85, 160),    // Pink Pulse – hồng tím rực sáng
-                Color.FromArgb(0, 220, 180),     // Mint Galaxy – xanh ngọc không gian
+                Color.FromArgb(90, 0, 140),     // Deep Magenta – tím đậm kiểu viền điện tử
+                Color.FromArgb(0, 220, 255),     // Cyber Aqua – xanh neon không gian
+
 
 
                 gradientAngle))
