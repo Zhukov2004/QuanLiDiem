@@ -421,7 +421,8 @@ namespace QuanLiDiemDaiHoc
             ((System.ComponentModel.ISupportInitialize)dgvSinhVien).EndInit();
             ResumeLayout(false);
             PerformLayout();
-
+            Guna2DragControl dragForm = new Guna2DragControl();
+            dragForm.TargetControl = this;
 
         }
 
@@ -446,7 +447,7 @@ namespace QuanLiDiemDaiHoc
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
 
         private Guna.UI2.WinForms.Guna2DataGridView dgvSinhVien;
-
+        private Guna.UI2.WinForms.Guna2DragControl dragForm;
         private Guna.UI2.WinForms.Guna2Button them;
         private Guna.UI2.WinForms.Guna2Button timkiem;
         private Guna.UI2.WinForms.Guna2Button xoa;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace QuanLiDiemDaiHoc
         {
             InitializeComponent();
         }
-
+        private System.Windows.Forms.Timer timerGradient;
+        private float gradientAngle = 0;
         private void them_Click(object sender, EventArgs e)
         {
             var ng = new Nganh
@@ -70,6 +72,15 @@ namespace QuanLiDiemDaiHoc
         private void frmNganh_Load(object sender, EventArgs e)
         {
             dgvNganh.DataSource = controller.LayDanhSach();
+            timerGradient = new System.Windows.Forms.Timer();
+            timerGradient.Interval = 20; // Càng nhỏ càng mượt (ms)
+            timerGradient.Tick += (s, ev) =>
+            {
+                gradientAngle += 1.5f;
+                if (gradientAngle >= 360f) gradientAngle = 0f;
+                this.Invalidate(); // Gọi lại OnPaintBackground
+            };
+            timerGradient.Start();
         }
 
         private void dgvNganh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -80,6 +91,22 @@ namespace QuanLiDiemDaiHoc
                 txtMaNganh.Text = row.Cells["MaNganh"].Value.ToString();
                 txtTenNganh.Text = row.Cells["TenNganh"].Value.ToString();
             }
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(40, 80, 160),
+                Color.FromArgb(220, 40, 30),
+                gradientAngle))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
+        private void dgvNganh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
